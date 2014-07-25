@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <style>
+      body{
+      
+      }
+      /* CSS goes here. */
+      .subunit.SCT { fill: #ddc; }
+      .subunit.WLS { fill: #cdd; }
+      .subunit.NIR { fill: #fff; }
+      .subunit.ENG { fill: #dcd; }
+      .subunit.IRL { fill: #fff }
+
+      .subunit-boundary {
+      fill: none;
+      stroke: #777;
+      stroke-dasharray: 2,2;
+      stroke-linejoin: round;
+      }
+
+      .subunit-boundary.IRL {
+      stroke: #aaa;
+      }
+
+      .cb-text{
+      color: #333333;
+      }
+
+      .map-title{
+      color: #333333;
+      font-size: 20px;
+      }
+
+      .domain{
+      stroke: none;
+      fill: none;
+      }
+
+      #maps-holder{
+      font-family: Helvetica, sans;
+      font-size: 12px;
+      }
+      
+      h3#subtitle{
+      text-align: center;
+      font-weight: bold;
+      }
+    </style>
+    <body>
+      <link rel="stylesheet" href="lib/d3.slider/d3.slider.css" />
+      <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script src="http://d3js.org/topojson.v1.min.js"></script>
+      <script src="lib/d3.slider/d3.slider.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+      <script type="text/javascript" src="/static/libs/jquery-extras/iframeResizer/js/iframeResizer.contentWindow.min.js"></script>
+      <script src="lib/minpubsub.js"></script>
+      
+      <div class='container'>
+        <h2 id='main-title'>Historic Weather-station data for the UK (1880-2013)</h2>
+        <p>The UK's Met-office provides historical climate data from thirty odd stations, some of which have been recording regional temperature, rainfall and sun-hours per-month since the 1880's. This data can be scraped from their web-site as raw-text files which, with a little cleaning, yield workable csv-files. Below is an attempt to visualize the output of these stations, interpolating their numbers to form a grid across the UK. Using the D3 visualization library this grid is superimposed on a map-projection of the UK.</p>
+        <p>The data files can get quite large so I've only sampled the last decade for the demo below. By pressing 'animate' one can sit back and watch the passing of the seasons or just click on the navbar below the maps to show a specific date.</p>
+        <h3 id='data-sample'></h3>
+        <h3 id='subtitle'></h3>
+        <button type="checkbox" id="mapAnim">Animation</button>
+        <div class='row' id='maps-holder'>
+          <div id='vizsun' class='col-md-4'></div>
+          <div id='vizrain' class = 'col-md-4'></div>
+          <div id='viztmax' class = 'col-md-4'></div>
+        </div>
+      </div>
+      <script src="uk_weather.js"></script>
+    </body>
+  </head>
+</html>
